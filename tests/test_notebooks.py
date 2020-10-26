@@ -9,9 +9,7 @@ from pytest_notebook.nb_regression import NBRegressionFixture
 
 
 def _yield_notebook_paths() -> Iterator[Path]:
-    root = Path(
-        Repo(".", search_parent_directories=True).working_tree_dir,
-    ).joinpath("machine-learning")
+    root = Path(Repo(".", search_parent_directories=True).working_tree_dir)
     for path in root.glob("**/*.ipynb"):
         if not any(p == ".ipynb_checkpoints" for p in path.parts):
             yield root.joinpath(path)
