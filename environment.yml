@@ -1,7 +1,7 @@
 name: machine-learning
 
 dependencies:
-  - python = 3.8.*
+  - python = 3.8
   - pip
   - pip:
       - --requirement=requirements/core.txt
