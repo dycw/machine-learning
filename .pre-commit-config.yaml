@@ -17,33 +17,6 @@ repos:
       - id: reorder-python-imports
         args: [--py37-plus]
 
-  - repo: https://github.com/asottile/yesqa
-    rev: v1.2.2
-    hooks:
-      - id: yesqa
-        additional_dependencies: [
-          flake8-annotations,
-          flake8-annotations-coverage,
-          flake8-bandit,
-          flake8-broken-line,
-          flake8-bugbear,
-          flake8-builtins,
-          flake8-commas,
-          flake8-comprehensions,
-          flake8-debugger,
-          flake8-eradicate,
-          flake8-executable,
-          flake8-fixme,
-          flake8-future-import,
-          flake8-pyi,
-          flake8-pytest,
-          flake8-pytest-style,
-          flake8-mutable,
-          flake8-string-format,
-          flake8-todo,
-          flake8-unused-arguments,
-        ]
-
   - repo: https://github.com/dfm/black_nbconvert
     rev: v0.2.0
     hooks:
@@ -93,22 +66,8 @@ repos:
         additional_dependencies: [
           flake8-annotations,
           flake8-annotations-coverage,
-          flake8-bandit,
-          flake8-broken-line,
           flake8-bugbear,
-          flake8-builtins,
-          flake8-commas,
-          flake8-comprehensions,
-          flake8-debugger,
-          flake8-eradicate,
-          flake8-executable,
-          flake8-fixme,
           flake8-future-import,
-          flake8-pyi,
           flake8-pytest,
           flake8-pytest-style,
-          flake8-mutable,
-          flake8-string-format,
-          flake8-todo,
-          flake8-unused-arguments,
         ]
