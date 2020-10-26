@@ -4,8 +4,8 @@ from pathlib import Path
 from typing import Iterator
 
 from git import Repo
-from papermill import execute_notebook
 from pytest import mark
+from pytest_notebook.nb_regression import NBRegressionFixture
 
 
 def _yield_notebook_paths() -> Iterator[Path]:
@@ -22,11 +22,6 @@ def _yield_notebook_paths() -> Iterator[Path]:
     list(_yield_notebook_paths()),
     ids=str,
 )
-def test_notebooks(
-    notebook_path: Path,
-    tmp_path: Path,
-) -> None:
-    execute_notebook(
-        str(notebook_path),
-        str(tmp_path.joinpath(notebook_path.name)),
-    )
+def test_notebooks(notebook_path: Path) -> None:
+    fixture = NBRegressionFixture()
+    fixture.check(str(notebook_path), raise_errors=True)
