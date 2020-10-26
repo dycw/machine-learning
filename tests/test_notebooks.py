@@ -24,5 +24,4 @@ def test_notebooks(
     nb_regression: NBRegressionFixture,
     notebook_path: Path,
 ) -> None:
-    fixture = NBRegressionFixture(exec_timeout=10)
-    fixture.check(str(notebook_path), raise_errors=True)
+    nb_regression.check(str(notebook_path), raise_errors=True)
