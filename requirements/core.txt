@@ -1,2 +1,0 @@
-gitpython == 3.1.*
-jupyterlab == 2.2.*

@@ -1,0 +1,7 @@
+name: k-means
+
+dependencies:
+  - python = 3.8.*
+  - holoviews = 1.13.*
+  - jupyterlab = 2.2.*
+  - scikit-learn = 0.23.*

@@ -1,7 +1,9 @@
 name: machine-learning
 
+channels:
+  - conda-forge
+
 dependencies:
   - python = 3.8.*
-  - pip
-  - pip:
-      - --requirement=requirements/dev.txt
+  - bump2version = 1.0.*
+  - pre-commmit = 2.7.*
