@@ -1,3 +1,4 @@
+celluloid == 0.2.*
 gitpython == 3.1.*
 holoviews == 1.13.*
 numpy == 1.19.*
