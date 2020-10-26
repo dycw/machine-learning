@@ -5,18 +5,23 @@ from typing import Iterator
 
 from git import Repo
 from papermill import execute_notebook
-from pytest import fixture
+from pytest import mark
 
 
-@fixture  # type: ignore
-def notebook() -> Iterator[Path]:
+def _yield_notebook_paths() -> Iterator[Path]:
     root = Path(
         Repo(".", search_parent_directories=True).working_tree_dir,
     ).joinpath("machine-learning")
     for path in root.glob("**/*.ipynb"):
-        yield root.joinpath(path)
+        if not any(p == ".ipynb_checkpoints" for p in path.parts):
+            yield root.joinpath(path)
 
 
+@mark.parametrize(  # type: ignore
+    "notebook_path",
+    list(_yield_notebook_paths()),
+    ids=str,
+)
 def test_notebooks(
     notebook_path: Path,
     tmp_path: Path,
