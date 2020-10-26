@@ -23,7 +23,7 @@ from numpy import sin
 
 
 @dataclass
-class XData:
+class _XData:
     title: str
     start: Union[int, float]
     stop: Union[int, float]
@@ -99,7 +99,7 @@ class Animation(ABC):
         raise NotImplementedError
 
     @property
-    def _x_data(self: Animation) -> XData:
+    def _x_data(self: Animation) -> _XData:
         raise NotImplementedError
 
 
@@ -110,8 +110,8 @@ class SineCurve(Animation):
         return Curve((xs, ys)).opts(width=800)
 
     @property
-    def _x_data(self: SineCurve) -> XData:
-        return XData(
+    def _x_data(self: SineCurve) -> _XData:
+        return _XData(
             title="phase",
             start=0.0,
             stop=4 * pi,
