@@ -22,8 +22,6 @@ def _yield_notebook_paths() -> Iterator[Path]:
     list(_yield_notebook_paths()),
     ids=str,
 )
-def test_notebooks(
-    nb_regression: NBRegressionFixture,
-    notebook_path: Path,
-) -> None:
-    nb_regression.check(str(notebook_path), raise_errors=True)
+def test_notebooks(notebook_path: Path) -> None:
+    fixture = NBRegressionFixture(force_regen=True)
+    fixture.check(str(notebook_path), raise_errors=True)
