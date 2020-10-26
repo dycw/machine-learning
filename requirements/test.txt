@@ -1,0 +1,7 @@
+-r core.txt
+
+nbval == 0.9.*
+pytest == 6.1.*
+pytest-randomly == 3.4.*
+pytest-rng == 1.0.*
+pytest-xdist == 2.1.*
