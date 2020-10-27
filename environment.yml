@@ -7,7 +7,6 @@ dependencies:
   - python = 3.8
 
   # core
-  - celluloid = 0.2
   - ffmpeg = 4.3
   - gitpython = 3.1
   - holoviews = 1.13
@@ -21,8 +20,12 @@ dependencies:
   # testing
   - papermill = 2.2
   - pytest = 6.1
-  - pytest-randomly = 3.4
   - pytest-xdist = 2.1
 
   # dev
   - pre-commit = 2.7
+
+  - pip
+  - pip:
+    - celluloid == 0.2
+    - pytest-randomly == 3.4
