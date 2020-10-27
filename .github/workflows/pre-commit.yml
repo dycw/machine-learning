@@ -6,8 +6,8 @@ on:
       - master
 
 jobs:
-  pytest:
-    name: pytest (${{ matrix.os }}, ${{ matrix.python-version }})
+  pre-commit:
+    name: pre-commit (${{ matrix.os }}, ${{ matrix.python-version }})
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -15,19 +15,7 @@ jobs:
         python-version: [3.8]
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/cache@v1
-        env:
-          CACHE_NUMBER: 0  # increment to reset cache
+      - uses: actions/setup-python@v2
         with:
-          path: ~/conda_pkgs_dir
-          key: ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{ hashFiles('environment.yml') }}
-      - uses: conda-incubator/setup-miniconda@v1.7.0
-        with:
-          activate-environment: machine-learning
-          auto-update-conda: true
-          environment-file: environment.yml
           python-version: ${{ matrix.python-version }}
-          use-only-tar-bz2: true  # for caching
-      - shell: bash -l {0}
-        run: |
-          pre-commit run --all-files
+      - uses: pre-commit/action@v2.0.0
