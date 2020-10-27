@@ -1,6 +1,0 @@
--r core.txt
-
-papermill == 2.2.*
-pytest == 6.1.*
-pytest-randomly == 3.4.*
-pytest-xdist == 2.1.*
