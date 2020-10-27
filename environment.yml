@@ -1,7 +1,31 @@
 name: machine-learning
 
+channels:
+  - conda-forge
+
 dependencies:
   - python = 3.8
+
+  # core
+  - ffmpeg = 4.3
+  - gitpython = 3.1
+  - holoviews = 1.13
+  - numpy = 1.19
+  - pandas = 1.1
+  - jupyterlab = 2.2
+  - seaborn = 0.11
+  - scikit-learn = 0.23
+  - scipy = 1.5
+
+  # testing
+  - papermill = 2.2
+  - pytest = 6.1
+  - pytest-xdist = 2.1
+
+  # dev
+  - pre-commit = 2.7
+
   - pip
   - pip:
-      - --requirement=requirements/core.txt
+    - celluloid == 0.2
+    - pytest-randomly == 3.4
